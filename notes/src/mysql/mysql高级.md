@@ -65,7 +65,7 @@ log-slow-queries= "目录/slowquery.log"
 
 > 服务层
 
-第二层架构主要完成大多少的核心服务功能，如SQL接口，并完成缓存的查询，SQL的分析和优化及部分内置函数的执行。所有跨存储引擎的功能也在这一层实现，如过程、函数等。在该层，服务器会解析查询并创建相应的内部解析树，并对其完成相应的优化如确定查询表的顺序，是否利用索引等，最后生成相应的执行操作。如果是select语句，服务器还会查询内部的缓存。如果缓存空间足够大，这样在解决大量读操作的环境中能够很好的提升系统的性能。
+第二层架构主要完成大多少的核心服务功能，如SQL接口，缓存的查询，SQL的分析和优化及部分内置函数的执行。所有跨存储引擎的功能也在这一层实现，如过程、函数等。在该层，服务器会解析查询并创建相应的内部解析树，并对其完成相应的优化如确定查询表的顺序，是否利用索引等，最后生成相应的执行操作。如果是select语句，服务器还会查询内部的缓存。如果缓存空间足够大，这样在解决大量读操作的环境中能够很好的提升系统的性能。
 
 > 引擎层
 
@@ -73,7 +73,7 @@ log-slow-queries= "目录/slowquery.log"
 
 > 存储层
 
-数据存储层，主要是将数据存储在运行于裸设备的文件系统之.上，并完成与存储引擎的交互。
+数据存储层，主要是将数据存储在运行于设备的文件系统之.上，并完成与存储引擎的交互。
 
 ### 4，MySQL存储引擎
 
@@ -83,7 +83,7 @@ log-slow-queries= "目录/slowquery.log"
 #看你的mysql现在已提供什么存储引擎:
 mysq|> show engines;
 #看你的mysq|当前默认的存储引擎:
-mysq|> show variables like "%storage_ engine%';
+mysq|> show variables like "%storage_engine%';
 ~~~
 
 | 对比项   | MyISAM                                                   | InnoDB                                                       |
@@ -119,7 +119,7 @@ mysq|> show variables like "%storage_ engine%';
 
     ~~~sql
     create index inx_user_name on user(name)
-     -- 一般认为是在user表的name字段上加名字为inx_user_name的索引
+    -- 一般认为是在user表的name字段上加名字为inx_user_name的索引
     ~~~
 
   - 复合
@@ -128,10 +128,6 @@ mysq|> show variables like "%storage_ engine%';
     create index inx_user_nameEmail on user(name,email)
     -- 一般认为是在user表的name字段和email字段上加名字为inx_user_nameEmail的索引
     ~~~
-
-    
-
-    
 
 - 关联查询太多join(设计缺陷或不得已的需求)
 
@@ -265,21 +261,20 @@ mysq|> show variables like "%storage_ engine%';
   - 三种情况
     - id相同，执行顺序由上至下
     - 不同，如果子查询，id的序列号会递增，id值越大优先级越高，越先被执行
-    - id相同不同，同时存在
     - id如果相同，可以认为是一组，从上往下顺序执行;在所有组中，id值越大，优先级越高，越先执行
-
+  
 - select_type
 
   - 有哪些？
 
-    - | id   | select_type                          |
-      | ---- | ------------------------------------ |
-      | 1    | SIMPLE(simple)普通                   |
-      | 2    | PRIMARY(primary)主键                 |
-      | 3    | SUBQUEKY(subqueky)子查询             |
-      | 4    | DERIVED(derived)派生                 |
-      | 5    | UNION(union)联合查询                 |
-      | 6    | UNION RESULT(union result)联合的结果 |
+    - | id   | select_type                |
+      | ---- | -------------------------- |
+      | 1    | SIMPLE(simple)             |
+      | 2    | PRIMARY(primary)           |
+      | 3    | SUBQUEKY(subqueky)         |
+      | 4    | DERIVED(derived)           |
+      | 5    | UNION(union)               |
+      | 6    | UNION RESULT(union result) |
 
   - 查询的类型，主要是用于区别普通查询，联合查询，子查询等的复杂查询
 
@@ -470,8 +465,8 @@ mysq|> show variables like "%storage_ engine%';
 
 ##### 2),优化策略
 
-- 增大sort_ buffer_ size 参数的设置
-- 增大max_ length_ for_ sort_ data 参数的设置
+- 增大sort_buffer_size 参数的设置
+- 增大max_length_for_sort_data 参数的设置
 
 ##### 3),为排序使用索引
 
@@ -491,7 +486,7 @@ mysq|> show variables like "%storage_ engine%';
 　　3. 如果GROUP BY的列有索引,ORDER BY的列没索引.产生临时表.
 　　4. 如果GROUP BY的列和ORDER BY的列不一样,即使都有索引也会产生临时表.
 　　5. 如果GROUP BY或ORDER BY的列不是来自JOIN语句第一个表.会产生临时表.
-  　　6. 如果DISTINCT 和 ORDER BY的列没有索引,产生临时表.
+        　　6. 如果DISTINCT 和 ORDER BY的列没有索引,产生临时表.
 
 ### 2，慢查询日志
 
@@ -717,18 +712,205 @@ type:
 
 ## 四，MySQLl锁机制
 
+> 什么是锁
+
+锁是计算机协调多个进程或线程并发访问某一资源的机制。
+
+在数据库中，除传统的计算资源(如CPU、RAM、I/O等) 的争用以外，数据也是一种供许多用户共享的资源。如何保证数据并发访问的一致性、有效性是所有数据库必须解决的一个问题， 锁冲突也是影响数据库并发访问性能的一个重要因素。从这个角度来说，锁对数据库而言显得尤其重要，也更加复杂。
+
+> 分类
+
+1. 对数据操作的类型
+   1. 读锁(共享锁)：针对同一份数据，多个读数据可以同时进行而不会互相影响
+   2. 写锁(排他锁)：当前写操作没有完成前，它会阻断其他写锁和读锁
+2. 从对数据操作的粒度分
+   1. 行锁
+   2. 表锁
+   3. 页锁
+
 ### 1，表锁(偏读)
 
+#### (1),特点
+
+偏向MyISAM存储引擎，开销小，加锁快;无死锁;锁定粒度大，发生锁冲突的概率最高,并发度最低。
+
+#### (2),操作
+
+> 手动增加表锁
+
+lock table  表名字 read(write), 表名字2 read(write)， 其他;
+
+> 查看表上加过的锁
+
+show open tables;
+
+>解锁
+
+unlock tables;
+
+> 分析命令
+
+show status like 'table%';
+
+1. Table_locks_immediate: 产生表级锁定的次数，表示可以立即获取锁的查询次数，每立即获取锁值加1 ;
+2. Table_Jocks_waited: 出现表级锁定争用而发生等待的次数(不能立即获取锁的次数，每等待一 次锁值加1)，此值高则说明存在着较严重的表级锁争用情况;
+
+#### (3),尝试
+
+- 开启窗口1和2,1给表dept加读锁之后，1,2都可以查表dept，1不能修改dept，2修改dept会阻塞，1不能查询没有上锁的emp，2可以查询emp
+- 开启窗口1和2,1给表dept加写锁之后，1都可以查表dept，2查看会阻塞，1可以更改dept，2会阻塞，1无法查看没有加锁的emp，2可以查询emp
+
+#### (4),总结
+
+1. MyISAM在执行查询语句(SELECT) 前，会自动给涉及的所有表加读锁，在执行增刪改操作前，会自动给涉及的表加写
+
+> MySQL的表级锁有两种模式: 
+
+- 表共享读锁(Table Read Lock)
+- 表独占写锁(Table Write Lock)
+
+| 锁类型 | 可否兼容 | 读锁 | 写锁 |
+| ------ | -------- | ---- | ---- |
+| 读锁   | 是       | 是   | 否   |
+| 写锁   | 是       | 否   | 否   |
+
+结合上表，所以对MyISAM表进行操作，会有以下情况:
+
+- 对MyISAM表的读操作(加读锁)，不会阻塞其他进程对同一表的读请求，但会阻塞对同一表的写请求。只有当读锁释放后，才会执行其它进程的写操作。
+- 对MyISAM表的写操作(加写锁)，会阻塞其他进程对同一表的读和写操作，只有当写锁释放后，才会执行其它进程的读写操作
+
+**==简而言之，就是读锁会阻塞写，但不会阻塞读，而写锁则会吧读和写都阻塞==**
+
+此外，Myisam的读写锁调度是写优先，这也是myisam不适合做写为主表的引擎。因为写锁后，其他线程不能做任何操作，大量的更新会使查询很难得到锁，从而造成永远阻塞
+
 ### 2，行锁(偏写)
+
+#### (1),特点
+
+偏向InnoDB存储引擎，开销大，加锁慢，会出现死锁；锁定粒度最小， 发生所冲突的概率最低，并发度也最高
+
+InnoDB与MyISAM的最大不同有两点，一时支持事务，二是采用了行级锁
+
+#### (2),并发事务带来的问题
+
+- 更新丢失
+- 脏读
+- 不可重复读
+- 幻读
+
+> 查看当前数据库的事务隔离级别
+
+show variables like 'tx_isolation';
+
+#### (3),操作
+
+1、表中创建索引， select ... where 字段（必须是索引） 不然行锁就无效。
+
+2、必须要有事务，这样才是 行锁（排他锁）
+
+3、在select 语句后面 加 上 FOR UPDATE；
+
+#### (4),其他
+
+YkgaKzrkZp
+
+如果使用行锁时索引失效了，那么行锁会成为表锁
+
+> 什么是间隙锁
+
+当我们用范围条件而不是相等条件检索数据，并请求共享或排他锁时，InnoDB会给 符合条件的已有数据记录的索引项加锁;对于键值在条件范围内但并不存在的记录，叫做“间隙(GAP)” 。
+
+InnoDB也会对这个“间隙”加锁，这种锁机制就是所谓的间隙锁(Next-Key锁) 。
+
+> 间隙锁的危害
+
+- 因为Query执行过程中通过过范围查找的话，他会锁定整个范围内所有的索引键值，即使这个键值并不存在。
+- 间隙锁有一个比较致命的弱点，就是当锁定一个范围键值之后，即使某些不存在的键值也会被无辜的锁定，而造成在锁定的时候无法插入锁定键值范围内的任何数据。在某些场景下这可能会对性能造成很大的危害
+
+#### (5),如何锁一行
+
+~~~sql
+begin;
+select * from dept where id = 1 for update;
+-- 操作数据
+commit;
+~~~
+
+#### (6),总结
+
+> 监控分析
+
+show status like 'inndb_row_lock%';
+
+对各个状态量的说明如下:
+
+~~~sql
+Innodb_row_lock_current_waits:
+当前正在等待锁定的数量; 
+Innodb_row_lock_time: 从系统启动到现在锁定总时间长度;
+Innodb_row_lock_time_avg: 每次等待所花平均时间;
+Innodb_row_lock_ftime_max: 从系统启动到现在等待最常的一次所花的时间;
+Innodb_row_lock_waits: 系统启动后到现在总共等待的次数;
+~~~
+
+对于这5个状态变量，比较重要的主要是
+Innodb_row_lock_time_avg (等待平均时长)，
+Innodb_row_lock_waits (等待总次数)
+Innodb_row_lock_time (等待总时长)这三项。
 
 ### 3，页锁
 
 ## 五，主从复制
 
-### 1，
+### 1，复制的基本原理
+
+slave会从master读取binlog来进行数据同步
+
+> 步骤
+
+1. master将改变记录到二进制日志(binary log)。这些记录过程叫做二进制日志事件，binary log events;
+2. slave将master的binary log events拷贝到它的中继8志(relay log) ;
+3. slave.重做中继日志中的事件，将改变应用到自己的数据库中。MySQL 复制是异步的且串行化的
 
 ### 2，复制的基本原则
 
+1. 每个slave只有一个master
+2. 每个slave只能有一个唯一的服务器ID
+3. 每个master可以有多个salve
+
 ### 3，复制的最大问题
 
+延时
+
 ### 4，一主一从常见配置
+
+1. mysql版本一直且后台以服务运行
+2. 主从都配置在[mysqld]结点下，首饰小写
+3. 主机修改my.ini配置文件
+   - 主服务器唯一ID：server-id = 1
+   - 启用二进制日志：log-bin = 自己本地的路径/mysqlbin
+   - 启用错误日志：log-err = 自己本地的路径/mysqlerr
+   - 根目录：basedir = "自己本地路径"
+   - 临时目录：tmpdir = "自己本地路径"
+   - read_only = 0：主机读写都可以
+   - 设置不要复制的数据库：binlog-ignore-db = mysql
+   - 设置需要复制的数据库： binlog-do-db = 需要复制的主数据库名字
+4. 从机修改my.cnf配置文件
+   - 从服务器唯一ID
+   - 启用二进制日志
+5. 因为修改过配置文件，主从机都重启后台mysql服务
+6. 主机从机都关闭防火墙
+7. 在windows主机上建立账户并授权slave
+   1. GRANT REPLICATION SLAVE ON \*.\*TO 'zhangsan'@'从机器数据库IP' IDENTIFIED BY '123456';
+   2. flush privileges;
+   3. 查看master的状态
+      - show master status;
+      - 记录下File和position的值
+   4. 执行完此步骤后不要在操作主服务器MYSQL，防止主服务器状态值变化
+8. 在Linux从机上配置需要复制的主机
+   1. CHANGE MASTER TO MASTER_HOST='主机IP’, MASTER_USER=' zhangsan'，MASTER_PASSWORD='123456'，MASTER_LOG_FILE=' File名字’，MASTER_LOG_Pos=Position数字;
+   2. 启动从服务器复制功能 start slave
+   3. show slave status\G
+      1. Slave_IO_Running : Yes
+      2. Slave_SQL_Running ：Yes
+9. 主机新建库，新建表，insert记录，从机复制
