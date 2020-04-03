@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+    <bean id="userService" class="com.liu.service.UserServiceImpl"/>
+    <bean id="log" class="com.liu.log.Log"/>
+    <bean id="afterlog" class="com.liu.log.AfterLog"/>
+
+    <!--使用原生spring API接口-->
+    <!--配置AOP-->
+    <!--<aop:config>
+        &lt;!&ndash;切入点 expression 表达式&ndash;&gt;
+        <aop:pointcut id="pointcut" expression="execution(* com.liu.service.UserServiceImpl.*(..))"/>
+        &lt;!&ndash;执行环绕增加&ndash;&gt;
+        <aop:advisor advice-ref="log" pointcut-ref="pointcut"/>
+        <aop:advisor advice-ref="afterlog" pointcut-ref="pointcut"/>
+    </aop:config>-->
+    <!--使用自定义类-->
+    <!--<bean id="newlog" class="com.liu.log.NewLog"/>
+    <aop:config>
+        &lt;!&ndash;自定义切面，ref 要引用的类&ndash;&gt;
+        <aop:aspect ref="newlog">
+            &lt;!&ndash;切入点&ndash;&gt;
+            <aop:pointcut id="point" expression="execution(* com.liu.service.UserServiceImpl.*(..))"/>
+            &lt;!&ndash;通知&ndash;&gt;
+            <aop:before method="alog" pointcut-ref="point"/>
+            <aop:after method="llog" pointcut-ref="point"/>
+        </aop:aspect>
+    </aop:config>-->
+    <!--方式三-->
+    <bean id="annotationpointCut" class="com.liu.diy.AnnotationPointCut"/>
+    <!--开启注解支持-->
+    <!--JDK默认是 proxy-target-class="false"  cglilb设置为proxy-target-class="true"-->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+</beans>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    注册一个bean 使用默认的无参构造器方式-->
+<!--    <bean id="user" class="com.wen.pojo.User">-->
+<!--        <property name="name" value="liu" />-->
+<!--    </bean>-->
+<!--    使用有参的构造器创建bean的第一种 下标赋值-->
+<!--    <bean id="user" class="com.wen.pojo.User">-->
+<!--        <constructor-arg index="0" value="演示使用有参的构造器创建bean1" />-->
+<!--    </bean>-->
+<!--    使用有参的构造器创建bean的第二种 类型匹配-->
+<!--    <bean id="user" class="com.wen.pojo.User">-->
+<!--        <constructor-arg type="java.lang.String" value="演示使用有参的构造器创建bean2" />-->
+<!--    </bean>-->
+<!--    使用有参的构造器创建bean的第三种 直接通过参数名来设置-->
+    <bean id="user" class="com.wen.pojo.User" name="newliu">
+        <!--这里的s是有参构造方法中的s参数-->
+        <constructor-arg name="s" value="演示使用有参的构造器创建bean3" />
+    </bean>
+    
+<!--    <alias name="user" alias="newliu"/>-->
+
+</beans>

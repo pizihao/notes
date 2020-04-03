@@ -1,0 +1,16 @@
+package com.liu.log;
+
+import org.springframework.aop.MethodBeforeAdvice;
+
+import java.lang.reflect.Method;
+
+/**
+ * @author shidacaizi
+ * @date 2020/4/3 12:34
+ */
+public class Log  implements MethodBeforeAdvice {
+    @Override
+    public void before(Method method, Object[] objects, Object o) throws Throwable {
+        System.out.println(o.getClass().getName()+"的"+method.getName()+"方法被执行了");
+    }
+}
