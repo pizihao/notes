@@ -51,8 +51,7 @@ HTTPS协议的主要作用可以分为两种：一种是建立一个信息安全
 2、http是超文本传输协议，信息是明文传输，https则是具有安全性的ssl加密传输协议。
 3、http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。
 4、http的连接很简单，是无状态的；HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。
-**六、HTTPS的安全性是怎么实现的
-**
+**六、HTTPS的安全性是怎么实现的**
 ![这里写图片描述](https://img-blog.csdn.net/20180811210523732?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTgzNTkxNg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 （1）客户使用https的URL访问Web服务器，要求与Web服务器建立SSL连接。
 （2）Web服务器收到客户端请求后，会将网站的证书信息（证书中包含公钥）传送一份给客户端。
