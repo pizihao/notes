@@ -1,7 +1,6 @@
 package com.liu.test;
 
-import com.liu.dao.UserDaoImpl;
-import com.liu.dao.UserMySqlImpl;
+import com.liu.mapper.UserMySqlImpl;
 import com.liu.service.UserService;
 import com.liu.service.UserServiceImpl;
 

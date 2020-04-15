@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.liu.mapper.StudentMapper">
+    <resultMap id="resultTeacgerAndStudentMap" type="com.liu.pojo.Student">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <!--复杂的属性需要单独处理：
+            对象：association
+            集合: collection
+        -->
+        <association property="teacher" column="tid" javaType="com.liu.pojo.Teacher" select="com.liu.mapper.TeacherMapper.getTeacherById"/>
+    </resultMap>
+    <select id="getStudentAndTeacherList" resultMap="resultTeacgerAndStudentMap">
+        select * from student;
+    </select>
+
+
+    <resultMap id="resultTeacgerAndStudentAllMap" type="com.liu.pojo.Student">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <association property="teacher" javaType="com.liu.pojo.Teacher">
+            <result column="id" property="id"/>
+            <result column="name" property="name"/>
+        </association>
+    </resultMap>
+
+</mapper>

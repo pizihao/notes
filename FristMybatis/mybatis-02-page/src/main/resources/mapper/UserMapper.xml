@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wen.mapper.UserMapper">
+    <resultMap id="userMap" type="com.wen.pojo.Users">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="pwd" property="pwd"/>
+    </resultMap>
+    <!--增加-->
+    <insert id="addUser" parameterType="com.wen.pojo.Users">
+        insert into
+        users(name, pwd)
+        values
+        (#{name}, #{pwd});
+    </insert>
+    <insert id="addUsers2">
+        insert into
+        users(name, pwd)
+        values
+        (#{userName}, #{passWord});
+    </insert>
+
+    <!--修改-->
+    <update id="updateUser" parameterType="com.wen.pojo.Users">
+        update users
+        set
+        name = #{name},
+        pwd = #{pwd}
+        where
+        id = #{id};
+    </update>
+
+    <!--删除-->
+    <delete id="deleteUser" parameterType="java.lang.Integer">
+        delete from
+        users
+        where
+        id = #{id}
+    </delete>
+
+    <!--查询-->
+    <select id="getUserList" resultType="com.wen.pojo.Users">
+        select
+        *
+        from
+        users
+    </select>
+    <select id="getUserById" resultType="com.wen.pojo.Users">
+        select
+        *
+        from
+        users
+        where
+        id = #{id}
+    </select>
+    <select id="getUsersLike" resultType="com.wen.pojo.Users">
+        select * from users where name like "%"#{value}"%";
+    </select>
+
+    <select id="getUserByLimit" resultMap="userMap" parameterType="map">
+        select
+        *
+        from users
+        limit #{startIndex}, #{pageSize};
+    </select>
+</mapper>

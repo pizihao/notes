@@ -1,7 +1,6 @@
 package com.liu.service;
 
-import com.liu.dao.UserDao;
-import com.liu.dao.UserDaoImpl;
+import com.liu.mapper.UserDao;
 
 /**
  * @author shidacaizi

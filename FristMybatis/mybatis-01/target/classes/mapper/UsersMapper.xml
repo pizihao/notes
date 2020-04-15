@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.liu.mapper.UsersMapper">
+    <!--增加-->
+    <insert id="addUser" parameterType="com.liu.pojo.Users">
+        insert into
+        users(name, pwd)
+        values
+        (#{name}, #{pwd});
+    </insert>
+    <insert id="addUsers2">
+        insert into
+        users(name, pwd)
+        values
+        (#{userName}, #{passWord});
+    </insert>
+
+    <!--修改-->
+    <update id="updateUser" parameterType="com.liu.pojo.Users">
+        update users
+        set
+        name = #{name},
+        pwd = #{pwd}
+        where
+        id = #{id};
+    </update>
+
+    <!--删除-->
+    <delete id="deleteUser" parameterType="java.lang.Integer">
+        delete from
+        users
+        where
+        id = #{id}
+    </delete>
+
+    <!--查询-->
+    <select id="getUserList" resultType="com.liu.pojo.Users">
+        select
+        *
+        from
+        users
+    </select>
+    <select id="getUserById" resultType="com.liu.pojo.Users">
+        select
+        *
+        from
+        users
+        where
+        id = #{id}
+    </select>
+    <select id="getUsersLike" resultType="com.liu.pojo.Users">
+        select * from users where name like "%"#{value}"%";
+    </select>
+</mapper>
