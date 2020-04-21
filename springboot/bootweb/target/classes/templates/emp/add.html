@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>招募</title>
+    <link rel="icon" th:href="@{favicon.ico}" type="image/ico">
+    <link th:href="@{css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{css/materialdesignicons.min.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{js/jquery-tags-input/jquery.tagsinput.min.css}">
+    <link th:href="@{css/style.min.css}" rel="stylesheet">
+    <!--时间选择插件-->
+    <link rel="stylesheet" th:href="@{js/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css}">
+    <!--日期选择插件-->
+    <link rel="stylesheet" th:href="@{js/bootstrap-datepicker/bootstrap-datepicker3.min.css}">
+    <link href="css/style.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="lyear-layout-web">
+    <div class="lyear-layout-container">
+
+        <div th:insert="~{commons/bar::sidebar(active='add.html')}"></div>
+        <div th:insert="~{commons/bar::header}"></div>
+        <!--页面主要内容-->
+        <main class="lyear-layout-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <form th:action="@{/addemp}" method="post" class="row">
+
+                                    <div class="form-group col-md-12">
+                                        <label for="lastName">姓名</label>
+                                        <input type="text" class="form-control" id="lastName" name="lastName" value=""
+                                               placeholder="请输入姓名"/>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label for="email">邮箱</label>
+                                        <input type="email" class="form-control" id="email" name="email" value=""
+                                               placeholder="请输入邮箱地址"/>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label for="gender">性别</label>
+                                        <div class="clearfix">
+                                            <label class="lyear-radio radio-inline radio-primary">
+                                                <input type="radio" name="gender" value="1" checked><span>男</span>
+                                            </label>
+                                            <label class="lyear-radio radio-inline radio-primary">
+                                                <input type="radio" name="gender" value="0"><span>女</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label for="type">编队</label>
+                                        <div class="form-controls">
+                                            <select name="department.id" class="form-control" id="type">
+                                                <option th:each="department:${departments}"
+                                                        th:value="${department.getId()}"
+                                                        th:text="${department.getDepartmentname()}"></option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label for="type">时间选择</label>
+                                        <input class="form-control js-datetimepicker" type="text"
+                                               id="example-datetimepicker" name="birth" placeholder="请选择时间"
+                                               value="" data-side-by-side="true" data-locale="zh-cn"
+                                               data-format="YYYY-MM-DD HH:mm:ss"/>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <button type="submit" class="btn btn-primary ajax-post" target-form="add-form">
+                                            确认进入编队
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!--End 页面主要内容-->
+    </div>
+</div>
+
+<script type="text/javascript" th:src="@{js/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{js/perfect-scrollbar.min.js}"></script>
+<!--标签插件-->
+<script th:src="@{js/jquery-tags-input/jquery.tagsinput.min.js}"></script>
+<script type="text/javascript" th:src="@{js/main.min.js}"></script>
+<!--时间选择插件-->
+<script th:src="@{js/bootstrap-datetimepicker/moment.min.js}"></script>
+<script th:src="@{js/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js}"></script>
+<script th:src="@{js/bootstrap-datetimepicker/locale/zh-cn.js}"></script>
+<!--日期选择插件-->
+<script th:src="@{js/bootstrap-datepicker/bootstrap-datepicker.min.js}"></script>
+<script th:src="@{js/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js}"></script>
+</body>
+</html>

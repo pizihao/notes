@@ -23,6 +23,6 @@
     </environments>
     <!-- 映射文件 -->
     <mappers>
-        <mapper class="com.liu.mapper.UsersMapper"/>
+        <mapper class="helloworld.liu.mapper.UsersMapper"/>
     </mappers>
 </configuration>

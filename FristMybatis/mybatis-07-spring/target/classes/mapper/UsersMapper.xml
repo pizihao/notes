@@ -3,8 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.hao.mapper.UsersMapper">
-    <select id="getListUsers" resultType="com.hao.pojo.Users">
+<mapper namespace="helloworld.hao.mapper.UsersMapper">
+    <select id="getListUsers" resultType="helloworld.hao.pojo.Users">
         select * from users
     </select>
 </mapper>

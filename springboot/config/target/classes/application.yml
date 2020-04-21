@@ -1,0 +1,14 @@
+person:
+  name: shidacaizi
+  age: 20
+  happy: false
+  birth: 2020/4/17
+  maps: {k1: v1,k2: v2}
+  list:
+    - code
+    - music
+    - girl
+  dog:
+    id: 1
+    name: "宸宸"
+    age: 3
