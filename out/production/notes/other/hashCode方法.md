@@ -17,7 +17,7 @@ public native int hashCode();
 像Collection,Map中的hashCode都带有这样的注解：
 
 ~~~java
-* @see Object#hashCode()
+@see Object#hashCode()
 ~~~
 
 说明这些都是调用的Object中的hashCode()方法，所以这些都是调用的底层的C/C++
