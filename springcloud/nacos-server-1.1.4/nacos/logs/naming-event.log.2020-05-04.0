@@ -1,0 +1,18 @@
+2020-05-04 10:30:59,731 INFO DEFAULT_GROUP@@nacos-payment-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.56.1:9001:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2020-05-04 10:30:59,737 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@nacos-payment-provider, ips: 192.168.56.1:9001_true,
+
+2020-05-04 10:45:44,843 INFO DEFAULT_GROUP@@nacos-payment-provider {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.56.1:9002:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2020-05-04 10:45:44,844 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@nacos-payment-provider, ips: 192.168.56.1:9001_true,192.168.56.1:9002_true,
+
+2020-05-04 10:45:44,844 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@nacos-payment-provider, ips: 192.168.56.1:9001_true,192.168.56.1:9002_true,
+
+2020-05-04 10:59:48,586 INFO DEFAULT_GROUP@@nacos-order-consumer {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.56.1:83:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2020-05-04 10:59:48,586 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@nacos-order-consumer, ips: 192.168.56.1:83_true,
+
+2020-05-04 12:21:48,884 INFO DEFAULT_GROUP@@nacos-config-client {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.56.1:3377:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2020-05-04 12:21:48,891 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@nacos-config-client, ips: 192.168.56.1:3377_true,
+

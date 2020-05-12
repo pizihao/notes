@@ -15,6 +15,10 @@
         <module>springcloud-eureka-7002</module>
         <module>springcloud-provider-dept-8002</module>
         <module>springcloud-provider-dept-8003</module>
+        <module>springcloud-alibaba-provider-9001</module>
+        <module>springcloud-alibaba-provider-9002</module>
+        <module>springcloud-alibaba-consumer-83</module>
+        <module>springcloud-alibaba-config-3377</module>
     </modules>
 
     <!--打包方式-->

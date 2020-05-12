@@ -17,7 +17,6 @@
         select * from student;
     </select>
 
-
     <resultMap id="resultTeacgerAndStudentAllMap" type="helloworld.liu.pojo.Student">
         <result column="id" property="id"/>
         <result column="name" property="name"/>

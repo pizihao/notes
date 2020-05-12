@@ -1,0 +1,40 @@
+2020-05-06 08:46:13,425 INFO DEFAULT_GROUP@@cloud-alibaba-sentinel-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.56.1:8401:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2020-05-06 08:46:13,435 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-alibaba-sentinel-service, ips: 192.168.56.1:8401_true,
+
+2020-05-06 08:46:13,441 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-alibaba-sentinel-service, ips: 192.168.56.1:8401_true,
+
+2020-05-06 08:49:08,465 INFO {POS} {IP-DISABLED} valid: 192.168.56.1:8401@DEFAULT@DEFAULT_GROUP@@cloud-alibaba-sentinel-service, region: unknown, msg: client timeout after 15000, last beat: 1588726128778
+
+2020-05-06 08:49:15,155 INFO service: DEFAULT_GROUP@@cloud-alibaba-sentinel-service {POS} {IP-ENABLED} valid: 192.168.56.1:8401@DEFAULT, region: unknown, msg: client beat ok
+
+2020-05-06 08:49:15,158 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-alibaba-sentinel-service, ips: 192.168.56.1:8401_true,
+
+2020-05-06 08:49:43,499 INFO {POS} {IP-DISABLED} valid: 192.168.56.1:8401@DEFAULT@DEFAULT_GROUP@@cloud-alibaba-sentinel-service, region: unknown, msg: client timeout after 15000, last beat: 1588726165180
+
+2020-05-06 08:49:52,100 INFO service: DEFAULT_GROUP@@cloud-alibaba-sentinel-service {POS} {IP-ENABLED} valid: 192.168.56.1:8401@DEFAULT, region: unknown, msg: client beat ok
+
+2020-05-06 08:49:52,103 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-alibaba-sentinel-service, ips: 192.168.56.1:8401_true,
+
+2020-05-06 08:59:09,452 INFO {POS} {IP-DISABLED} valid: 192.168.56.1:8401@DEFAULT@DEFAULT_GROUP@@cloud-alibaba-sentinel-service, region: unknown, msg: client timeout after 15000, last beat: 1588726733342
+
+2020-05-06 08:59:24,771 INFO DEFAULT_GROUP@@cloud-alibaba-sentinel-service {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.56.1:8401:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2020-05-06 08:59:24,771 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-alibaba-sentinel-service, ips: 
+
+2020-05-06 08:59:32,247 INFO DEFAULT_GROUP@@cloud-alibaba-sentinel-service {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.56.1:8401:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2020-05-06 08:59:32,247 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-alibaba-sentinel-service, ips: 192.168.56.1:8401_true,
+
+2020-05-06 09:01:09,774 INFO {POS} {IP-DISABLED} valid: 192.168.56.1:8401@DEFAULT@DEFAULT_GROUP@@cloud-alibaba-sentinel-service, region: unknown, msg: client timeout after 15000, last beat: 1588726852331
+
+2020-05-06 09:01:11,413 INFO service: DEFAULT_GROUP@@cloud-alibaba-sentinel-service {POS} {IP-ENABLED} valid: 192.168.56.1:8401@DEFAULT, region: unknown, msg: client beat ok
+
+2020-05-06 09:01:11,416 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-alibaba-sentinel-service, ips: 192.168.56.1:8401_true,
+
+2020-05-06 09:05:39,845 INFO {POS} {IP-DISABLED} valid: 192.168.56.1:8401@DEFAULT@DEFAULT_GROUP@@cloud-alibaba-sentinel-service, region: unknown, msg: client timeout after 15000, last beat: 1588727121735
+
+2020-05-06 09:05:42,975 INFO service: DEFAULT_GROUP@@cloud-alibaba-sentinel-service {POS} {IP-ENABLED} valid: 192.168.56.1:8401@DEFAULT, region: unknown, msg: client beat ok
+
+2020-05-06 09:05:43,075 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@cloud-alibaba-sentinel-service, ips: 192.168.56.1:8401_true,
+
