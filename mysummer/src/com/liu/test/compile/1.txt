@@ -1,0 +1,16 @@
+PROGRAM source;
+/*
+ * this little source program is used to
+ * illustrate compiling procedure.
+ */
+VAR x,y,z: integer;
+a: integer;
+BEGIN
+/*
+ * this program has only four statements.
+ */
+x: =23+5;
+z: =x DIV -3;
+y: =z+18*3;
+a: =x+(y-2) DIV 4;
+END.
