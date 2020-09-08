@@ -18,6 +18,7 @@ public class Square {
                 return 1;
             }
         } else {
+            System.out.println("是三角形");
             return 0;
         }
     }

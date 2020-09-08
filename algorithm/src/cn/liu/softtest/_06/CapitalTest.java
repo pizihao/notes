@@ -20,10 +20,10 @@ import java.util.Scanner;
 * 	阿拉伯金额数字万位和元位是“0”，或者数字中间连续有几个“0”，万位、元位也是“0”，但千位、角位不是“0”时，中文大写金额中只写一个零字，也可以不写“零”字。如￥1680.32，应写成：人民币壹仟陆佰捌拾元叁角贰分，又如￥107000.53，应写成：人民币壹拾万零柒仟元伍角叁分。
 * 	阿拉伯金额数字角位是“0”，而分位不是“0”时，中文大写金额“元”后面应写“零”字。如￥16409.02，应写成人民币：壹万陆仟肆佰零玖元零贰分；又如￥325.04，应写成人民币叁佰贰拾伍元零肆分。
 * */
-public class CapitalTest {
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        System.out.println("人民币"+new Capital().format(in.next()));
-        in.close();
+    public class CapitalTest {
+        public static void main(String[] args) {
+            Scanner in = new Scanner(System.in);
+            System.out.println("人民币"+new Capital().format(in.next()));
+            in.close();
+        }
     }
-}

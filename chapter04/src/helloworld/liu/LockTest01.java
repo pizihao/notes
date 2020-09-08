@@ -13,17 +13,18 @@ public class LockTest01 {
     public static void main(String[] args) {
         Data01 data01 = new Data01();
 
-        new Thread(() ->{ for (int i = 0; i < 10; i++) data01.printA();}, "A").start();
-        new Thread(() ->{ for (int i = 0; i < 10; i++) data01.printB();}, "B").start();
-        new Thread(() ->{ for (int i = 0; i < 10; i++) data01.printC();}, "C").start();
+        new Thread(() ->{ for (int i = 0; i < 10; i++) data01.printA();}, "线程一").start();
+        new Thread(() ->{ for (int i = 0; i < 10; i++) data01.printB();}, "线程二").start();
+        new Thread(() ->{ for (int i = 0; i < 10; i++) data01.printC();}, "线程三").start();
 
     }
 
 }
 
 class Data01 {
+//    定义一个可重入锁
     private Lock lock = new ReentrantLock();
-
+//    使用Condition接口来实现对lock的操作
     private Condition condition1 = lock.newCondition();
     private Condition condition2 = lock.newCondition();
     private Condition condition3 = lock.newCondition();
@@ -31,6 +32,7 @@ class Data01 {
     private int num = 1;
 
     public void printA() {
+//        上锁
         lock.lock();
 
         try {
@@ -38,14 +40,16 @@ class Data01 {
                 condition1.await();
             }
 
-            System.out.println(Thread.currentThread().getName()+"A");
+            System.out.println("现在是" + Thread.currentThread().getName());
 
             num = 2;
+//          指定唤醒线程二
             condition2.signal();
 
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
+//            解锁
             lock.unlock();
         }
     }
@@ -58,7 +62,7 @@ class Data01 {
                 condition2.await();
             }
 
-            System.out.println(Thread.currentThread().getName()+"B");
+            System.out.println("现在是" + Thread.currentThread().getName());
 
             num = 3;
             condition3.signal();
@@ -78,7 +82,7 @@ class Data01 {
                 condition3.await();
             }
 
-            System.out.println(Thread.currentThread().getName()+"C");
+            System.out.println("现在是" + Thread.currentThread().getName());
 
             num = 1;
             condition1.signal();

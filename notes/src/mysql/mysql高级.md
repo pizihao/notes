@@ -139,7 +139,7 @@ mysq|> show variables like "%storage_engine%';
 
 ![](sqljoin.jpg)
 
-#### (2) 7中join
+#### (2) 7种join
 
 ### 3，索引简介
 
@@ -187,7 +187,7 @@ mysq|> show variables like "%storage_engine%';
 - 删除
   - DROP INDEX [indexName] ON mytable;
 - 查看
-  - SHOW INDEX FROM table_name\G
+  - SHOW INDEX FROM table_name
 - 使用ALTER命令
   - ALTER TABLE tbl \_name ADD PRIMARY KEY (column\_list) 该语句添加一个主键，这意味着索引值必须是唯一的， 且不能为NULL。
   - ALTER TABLE tbl\_name ADD UNIQUE index_name (column\_list) 这条语句创建索引的值必须是唯一的(除了NULL外，NULL可能会出现多次)。
@@ -485,8 +485,8 @@ mysq|> show variables like "%storage_engine%';
 　　2. 如果GROUP BY时,SELECT的列不止GROUP BY列一个,并且GROUP BY的列不是主键 ,产生临时表.
 　　3. 如果GROUP BY的列有索引,ORDER BY的列没索引.产生临时表.
 　　4. 如果GROUP BY的列和ORDER BY的列不一样,即使都有索引也会产生临时表.
-　　5. 如果GROUP BY或ORDER BY的列不是来自JOIN语句第一个表.会产生临时表.
-        　　6. 如果DISTINCT 和 ORDER BY的列没有索引,产生临时表.
+  　　5. 如果GROUP BY或ORDER BY的列不是来自JOIN语句第一个表.会产生临时表.
+  　　6. 如果DISTINCT 和 ORDER BY的列没有索引,产生临时表.
 
 ### 2，慢查询日志
 
