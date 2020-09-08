@@ -1,5 +1,6 @@
 package com.liu.test.softtest.lock.juc;
 
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -68,13 +69,14 @@ class Dataes {
         try {
             // 业务代码
             // 防止虚假唤醒，不要用if判断
-            while (number != 0) {
-//            等待
-                condition.await();
-            }
+//            while (number != 0) {
+////            等待
+//                condition.await();
+//            }
+            TimeUnit.MICROSECONDS.sleep(100);
 //            生产
             number++;
-            System.out.println(Thread.currentThread().getName() + "=>" + number);
+            System.out.println(Thread.currentThread().getName() + "生产了一个=>" + number);
 //         通知其他线程 +1完毕 随机通知
             condition.signalAll();
         } catch (Exception e) {
@@ -92,9 +94,10 @@ class Dataes {
 //            等待
                 condition.await();
             }
+            TimeUnit.MICROSECONDS.sleep(200);
 //            消费
             number--;
-            System.out.println(Thread.currentThread().getName() + "=>" + number);
+            System.out.println(Thread.currentThread().getName() + "消费了一个=>" + number);
 //        通知其他线程 -1完毕
             condition.signalAll();
         } catch (Exception e) {
