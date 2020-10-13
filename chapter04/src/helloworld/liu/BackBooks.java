@@ -25,7 +25,7 @@ public class BackBooks {
         //计算回文子串的个数
         int cnt = 0;
         for (String temp : list) {
-//            System.out.println(temp);
+        //System.out.println(temp);
             if (isPalindrome(temp)) {
                 cnt++;
             }

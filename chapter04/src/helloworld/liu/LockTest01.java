@@ -13,9 +13,18 @@ public class LockTest01 {
     public static void main(String[] args) {
         Data01 data01 = new Data01();
 
-        new Thread(() ->{ for (int i = 0; i < 10; i++) data01.printA();}, "线程一").start();
-        new Thread(() ->{ for (int i = 0; i < 10; i++) data01.printB();}, "线程二").start();
-        new Thread(() ->{ for (int i = 0; i < 10; i++) data01.printC();}, "线程三").start();
+        new Thread(() ->{ for (int i = 0; i < 10; i++) {
+            data01.printA();
+        }
+        }, "线程一").start();
+        new Thread(() ->{ for (int i = 0; i < 10; i++) {
+            data01.printB();
+        }
+        }, "线程二").start();
+        new Thread(() ->{ for (int i = 0; i < 10; i++) {
+            data01.printC();
+        }
+        }, "线程三").start();
 
     }
 
@@ -23,6 +32,9 @@ public class LockTest01 {
 
 class Data01 {
 //    定义一个可重入锁
+    /**
+     * lock
+     */
     private Lock lock = new ReentrantLock();
 //    使用Condition接口来实现对lock的操作
     private Condition condition1 = lock.newCondition();
