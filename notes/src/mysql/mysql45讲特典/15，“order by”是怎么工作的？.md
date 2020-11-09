@@ -38,11 +38,16 @@
 
 - packed_additional_fields 排序过程对字符串做了“紧凑”处理
 
+![img](https://img-blog.csdnimg.cn/20190509152315130.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5MDY2MzI5,size_16,color_FFFFFF,t_70)
+
 > rowid 排序
 
 - mysql 中有一个参数max_length_for_sort_data
 - 这个参数是专门控制用于排序的行数据长度的参数，如果单行超过了这个值，就代表单行太长，mysql会更换一个排序算法
 - rowid 方式和全字段方式一样，需要先把查询到的结果全部放在内存或硬盘中，再使用相关算法进行排序。而排序后由于没有保存所需的字段，需要按顺序使用主键再从索引树上查询，查到一个就返回一个，而不用把所有内容查完放到内存上再一并返回。
+
+![img](https://img-blog.csdnimg.cn/20190509152509778.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5MDY2MzI5,size_16,color_FFFFFF,t_70)
+
 - 如果 MySQL 实在是担心排序内存太小，会影响排序效率，才会采用 rowid 排序算法，这样排序过程中一次可以排序更多行，但是需要再回到原表去取数据。
 - 如果 MySQL 认为内存足够大，会优先选择全字段排序，把需要的字段都放到 sort_buffer 中，这样排序后就会直接从内存里面返回查询结果了，不用再回到原表去取数据。
 - mysql的设计思想：如果内存够，就要多利用内存，尽量减少磁盘访问。
