@@ -15,9 +15,6 @@ import java.util.List;
  * @author shidacaizi
  * @date 2020/4/30 18:54
  */
-/*
-* 提供redtful服务
-* */
 @Controller
 @ResponseBody
 public class DeptController {

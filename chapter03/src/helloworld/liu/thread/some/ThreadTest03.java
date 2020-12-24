@@ -1,4 +1,4 @@
-package helloworld.liu.thread;
+package helloworld.liu.thread.some;
 
 /**
  * @author shidacaizi

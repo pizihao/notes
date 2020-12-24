@@ -1,4 +1,4 @@
-package helloworld.liu.thread.com.liu.juczs;
+package helloworld.liu.thread.juczs;
 
 import java.util.concurrent.TimeUnit;
 
