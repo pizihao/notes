@@ -32,7 +32,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>5.1.9.RELEASE</version>
+            <version>5.1.14.RELEASE</version>
         </dependency>
         <!--spring 操作数据库的依赖-->
         <dependency>
@@ -57,7 +57,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>5.1.9.RELEASE</version>
+            <version>5.1.14.RELEASE</version>
         </dependency>
     </dependencies>
 </project>
