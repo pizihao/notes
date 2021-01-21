@@ -8,6 +8,7 @@ package com.liu.effective.object01;
  **/
 public class MainS {
     public static void main(String[] args) {
+
         ObjectCreat.returnChild();
     }
 }

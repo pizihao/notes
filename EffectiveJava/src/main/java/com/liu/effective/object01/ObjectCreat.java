@@ -10,9 +10,6 @@ import lombok.Builder;
  **/
 @Builder(toBuilder = true)
 public class ObjectCreat {
-
-
-
     public static ObjectCreat returnChild(){
         return new ObjectCreat01();
     }

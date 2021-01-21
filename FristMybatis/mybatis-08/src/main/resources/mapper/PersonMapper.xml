@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myb.mapper.UsersMapper">
+    <!--增加--><!--
+    <insert id="addUser" parameterType="com.myb.pojo.Person">
+
+                 insert into
+                 person(name, age)
+                 values (#{name}, #{age});
+
+    </insert>
+    <insert id="addPerson2">
+
+                 insert into
+                 person(name, age)
+                 values (#{userName}, #{age});
+
+    </insert>
+
+    &lt;!&ndash;修改&ndash;&gt;
+    <update id="updateUser" parameterType="com.myb.pojo.Person">
+
+                 update person
+                 set name = #{name}, age = #{age}
+                 where id = #{id};
+
+    </update>
+
+    &lt;!&ndash;删除&ndash;&gt;
+    <delete id="deleteUser" parameterType="java.lang.Integer">
+
+                 delete from person
+                 where id = #{id}
+
+    </delete>-->
+
+    <!--查询-->
+    <select id="getUserList" resultType="com.myb.pojo.Person">
+
+                 select * from person
+
+    </select>
+</mapper>

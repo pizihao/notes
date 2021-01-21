@@ -8,12 +8,11 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * @author shidacaizi
- * @date 2020/4/17 23:05
- */
-/*
-* 扩展springmvc
-* */
+ * @program: JVMDome
+ * @description: 跳转和拦截器
+ * @author: liuwenhao
+ * @create: 2021-01-10 13:27
+ **/
 @Configuration
 public class MyMvcConfig implements WebMvcConfigurer {
 

@@ -7,9 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @author shidacaizi
- * @date 2020/4/18 18:32
- */
+ * @program: JVMDome
+ * @description: 登录过滤
+ * @author: liuwenhao
+ * @create: 2021-01-10 13:27
+ **/
 public class LoginHandlerInterceptor implements HandlerInterceptor {
 
     @Override

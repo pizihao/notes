@@ -17,6 +17,7 @@
         <module>mybatis-04-conntion</module>
         <module>mybatis-06</module>
         <module>mybatis-07-spring</module>
+        <module>mybatis-08</module>
     </modules>
 
     <!--导入依赖-->

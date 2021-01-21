@@ -40,24 +40,18 @@ class Data01 {
     private Condition condition1 = lock.newCondition();
     private Condition condition2 = lock.newCondition();
     private Condition condition3 = lock.newCondition();
-
     private int num = 1;
-
     public void printA() {
 //        上锁
         lock.lock();
-
         try {
             while (num != 1){
                 condition1.await();
             }
-
             System.out.println("现在是" + Thread.currentThread().getName());
-
             num = 2;
 //          指定唤醒线程二
             condition2.signal();
-
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {

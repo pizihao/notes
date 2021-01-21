@@ -83,14 +83,6 @@
       
 ```
 
-![](C:\Users\陈超\Desktop\Linux\springboot+cloud\springcloud\sc的1.png)
-
-![](C:\Users\陈超\Desktop\Linux\springboot+cloud\springcloud\sc的2.png)
-
-
-
-
-
 
 
 # cloud_pay_8001依赖:

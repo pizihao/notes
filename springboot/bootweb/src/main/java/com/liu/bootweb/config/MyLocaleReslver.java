@@ -8,9 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Locale;
 
 /**
- * @author shidacaizi
- * @date 2020/4/18 17:34
- */
+ * @program: JVMDome
+ * @description: 配置国际化
+ * @author: liuwenhao
+ * @create: 2021-01-10 13:27
+ **/
 public class MyLocaleReslver implements LocaleResolver {
     //解析请求
     @Override
