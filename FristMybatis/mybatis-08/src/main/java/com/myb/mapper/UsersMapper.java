@@ -15,7 +15,7 @@ import java.util.Map;
 public interface UsersMapper {
     List<Person> getUserList();
 
-//    @Select("select * from person where id = #{id}")
+    //    @Select("select * from person where id = #{id}")
     Person getUserById(@Param("id") int id);
 
 //    int addUser(@Param("name") String name, @Param("age") int age);
