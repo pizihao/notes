@@ -281,7 +281,7 @@ yaml可以给实体类直接赋值
    @NoArgsConstructor
    @PropertySource(value = "chlasspath:test.properties")
    public class Person {
-       @Valie("${name}")
+       @Value("${name}")
        private String name;
        private Integer age;
        private Boolean happy;
