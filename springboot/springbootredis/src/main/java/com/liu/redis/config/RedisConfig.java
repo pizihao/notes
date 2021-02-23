@@ -19,7 +19,7 @@ public class RedisConfig {
     // 编写我们自己的redisTemplate
     @Bean
     @SuppressWarnings("all")
-    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory){
+    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
         RedisTemplate<String, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(redisConnectionFactory);
         // 序列化配置

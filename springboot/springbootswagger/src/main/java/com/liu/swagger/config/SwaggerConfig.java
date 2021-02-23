@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class SwaggerConfig {
     //配置了swagger的Docket的bean实例
     @Bean
-    public Docket docket(){
+    public Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
@@ -31,7 +31,7 @@ public class SwaggerConfig {
     }
 
     //配置Swagger信息 = apiInfo
-    private ApiInfo apiInfo(){
+    private ApiInfo apiInfo() {
         //作者信息
         Contact contact = new Contact("shidacaizi", "http://shidacaizi.cn/", "2335715300@qq.com");
         return new ApiInfo(

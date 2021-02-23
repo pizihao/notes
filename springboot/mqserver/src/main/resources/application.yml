@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: BootRabbitMq
+  rabbitmq:
+    host: 47.100.139.231
+    port: 5672
+    username: admin
+    password: 123456

@@ -27,7 +27,7 @@ public class HelloController {
     private AsyncService asyncService;
 
     @RequestMapping("/index")
-    public String index(){
+    public String index() {
         return "index";
     }
 
@@ -36,12 +36,12 @@ public class HelloController {
             @RequestParam("username") String username,
             @RequestParam("password") String password,
             Model model,
-            HttpSession session){
-        if (!StringUtils.isEmpty(username) && "123456".equals(password)){
+            HttpSession session) {
+        if (!StringUtils.isEmpty(username) && "123456".equals(password)) {
             session.setAttribute("loginUser", username);
             return "redirect:/welcome.html";
-        }else {
-            model.addAttribute("msg","账号密码错误");
+        } else {
+            model.addAttribute("msg", "账号密码错误");
             return "index";
         }
     }

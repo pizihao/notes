@@ -10,7 +10,6 @@ import java.util.List;
  */
 public interface UsersService {
     /**
-     *
      * @Param: []
      * @return: java.util.List<com.liu.mybatis.pojo.Users>
      * @Author: shidacaizi
@@ -19,7 +18,6 @@ public interface UsersService {
     List<Users> getList();
 
     /**
-     *
      * @Param: [id]
      * @return: com.liu.mybatis.pojo.Users
      * @Author: shidacaizi
@@ -28,7 +26,6 @@ public interface UsersService {
     Users getUsersById(int id);
 
     /**
-     *
      * @Param: [users]
      * @return: int
      * @Author: shidacaizi
@@ -37,7 +34,6 @@ public interface UsersService {
     int addUsers(Users users);
 
     /**
-     *
      * @Param: [users]
      * @return: int
      * @Author: shidacaizi
@@ -46,7 +42,6 @@ public interface UsersService {
     int updateUsers(Users users);
 
     /**
-     *
      * @Param: [id]
      * @return: int
      * @Author: shidacaizi

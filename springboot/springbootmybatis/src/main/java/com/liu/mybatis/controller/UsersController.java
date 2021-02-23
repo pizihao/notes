@@ -13,7 +13,7 @@ import java.util.List;
  * @date 2020/4/19 15:37
  */
 @RestController
-public class UsersController{
+public class UsersController {
 
     @Autowired
     private UsersService usersService;

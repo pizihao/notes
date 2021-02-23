@@ -17,6 +17,7 @@ public interface OrderMapper {
 
     /**
      * 通过@SelectKey使insert成功后返回主键id，也就是订单id
+     *
      * @param orderInfo
      * @return
      */
@@ -30,6 +31,6 @@ public interface OrderMapper {
     public int insertSeckillOrder(SeckillOrder order);
 
     @Select("select * from sk_order_info where id = #{orderId}")
-    public OrderInfo getOrderById(@Param("orderId")long orderId);
+    public OrderInfo getOrderById(@Param("orderId") long orderId);
 
 }

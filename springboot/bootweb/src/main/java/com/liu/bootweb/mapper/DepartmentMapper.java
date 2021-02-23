@@ -20,11 +20,11 @@ public class DepartmentMapper {
 
     static {
         departmentMap = new HashMap<>();
-        departmentMap.put(101,new Department(101,"侦查组"));
-        departmentMap.put(102,new Department(102,"航行指挥组"));
-        departmentMap.put(103,new Department(103,"火力指挥组"));
-        departmentMap.put(104,new Department(104,"后勤组"));
-        departmentMap.put(105,new Department(105,"火力组"));
+        departmentMap.put(101, new Department(101, "侦查组"));
+        departmentMap.put(102, new Department(102, "航行指挥组"));
+        departmentMap.put(103, new Department(103, "火力指挥组"));
+        departmentMap.put(104, new Department(104, "后勤组"));
+        departmentMap.put(105, new Department(105, "火力组"));
 //        departmentMap.put(106,new Department(106,"投放组"));
 //        departmentMap.put(107,new Department(107,"兵力调遣组"));
 //        departmentMap.put(108,new Department(108,"右翼组"));
@@ -39,12 +39,12 @@ public class DepartmentMapper {
     }
 
     // 获取所有部门信息
-    public Collection<Department> getDepartments(){
+    public Collection<Department> getDepartments() {
         return departmentMap.values();
     }
 
     //通过ID得到部门
-    public Department getDepartmentById(Integer id){
+    public Department getDepartmentById(Integer id) {
         return departmentMap.get(id);
     }
 }

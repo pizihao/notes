@@ -27,7 +27,7 @@ public class UserRealm extends AuthorizingRealm {
 
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
 //        info.addStringPermission("users:add");
-        
+
         //拿到当前登录的用户
         Subject subject = SecurityUtils.getSubject();
         Users users = (Users) subject.getPrincipal();
@@ -37,6 +37,7 @@ public class UserRealm extends AuthorizingRealm {
 
         return info;
     }
+
     //认证
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
@@ -44,10 +45,10 @@ public class UserRealm extends AuthorizingRealm {
         //用户名 密码，数据中取出来
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         Users users = usersService.getUsersByName(token.getUsername());
-        if (users == null){
+        if (users == null) {
             return null;
         }
         //密码认证
-        return new SimpleAuthenticationInfo(users,users.getPwd(),"");
+        return new SimpleAuthenticationInfo(users, users.getPwd(), "");
     }
 }

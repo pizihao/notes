@@ -18,6 +18,7 @@ public interface AsyncService {
 
     /**
      * 执行异步计算
+     *
      * @return int
      */
     Future<Integer> submitAsync(int task) throws InterruptedException;

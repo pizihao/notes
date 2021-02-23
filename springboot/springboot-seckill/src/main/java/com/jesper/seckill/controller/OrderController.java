@@ -40,11 +40,11 @@ public class OrderController {
     @ResponseBody
     public Result<OrderDetailVo> info(Model model, User user,
                                       @RequestParam("orderId") long orderId) {
-        if(user == null) {
+        if (user == null) {
             return Result.error(CodeMsg.SESSION_ERROR);
         }
         OrderInfo order = orderService.getOrderById(orderId);
-        if(order == null) {
+        if (order == null) {
             return Result.error(CodeMsg.ORDER_NOT_EXIST);
         }
         long goodsId = order.getGoodsId();

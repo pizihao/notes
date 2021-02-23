@@ -9,7 +9,7 @@ spring:
 
 
 thymeleaf:
-    cache: false
+  cache: false
 mybatis:
   type-aliases-package: com.liu.shiro.pojo
   mapper-locations: classpath:mapper/*.xml

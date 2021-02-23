@@ -42,9 +42,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder())
                 .withUser("shidacaizi")
                 .password(new BCryptPasswordEncoder().encode("123456"))
-                .roles("vip2","vip3")
+                .roles("vip2", "vip3")
                 .and().withUser("root")
                 .password(new BCryptPasswordEncoder().encode("123456"))
-                .roles("vip1","vip2","vip3");
+                .roles("vip1", "vip2", "vip3");
     }
 }

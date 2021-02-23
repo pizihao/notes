@@ -22,7 +22,7 @@ public class LoginHandlerInterceptor implements HandlerInterceptor {
             request.setAttribute("msg", "你还没有登录");
             request.getRequestDispatcher("/index").forward(request, response);
             return false;
-        }else {
+        } else {
             return true;
         }
     }

@@ -36,6 +36,6 @@ public class AsyncServiceImpl implements AsyncService {
         System.out.println(Thread.currentThread().getName() + "sleep。。。");
         TimeUnit.SECONDS.sleep(2);
         logger.info("终止异步计算");
-        return new AsyncResult<Integer>(task*2);
+        return new AsyncResult<Integer>(task * 2);
     }
 }

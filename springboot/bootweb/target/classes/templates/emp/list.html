@@ -42,29 +42,29 @@
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-striped">
                                         <thead>
-                                            <tr>
-                                                <th>编号</th>
-                                                <th>姓名</th>
-                                                <th>邮箱</th>
-                                                <th>性别</th>
-                                                <th>职位</th>
-                                                <th>生日</th>
-                                                <th>操作</th>
-                                            </tr>
+                                        <tr>
+                                            <th>编号</th>
+                                            <th>姓名</th>
+                                            <th>邮箱</th>
+                                            <th>性别</th>
+                                            <th>职位</th>
+                                            <th>生日</th>
+                                            <th>操作</th>
+                                        </tr>
                                         </thead>
                                         <tbody>
-                                            <tr th:each="emp:${employees}">
-                                                <td th:text="${emp.getId()}"></td>
-                                                <td th:text="${emp.getLastName()}"></td>
-                                                <td th:text="${emp.getEmail()}"></td>
-                                                <td th:text="${emp.getGender()==1?'男':'女'}"></td>
-                                                <td th:text="${emp.getDepartment().getDepartmentname()}"></td>
-                                                <td th:text="${#dates.format(emp.getBirth(), 'yyyy-MM-dd HH:mm:ss')}"></td>
-                                                <td>
-                                                    <button class="btn btn-primary">编辑</button>
-                                                    <button class="btn btn-danger">解雇</button>
-                                                </td>
-                                            </tr>
+                                        <tr th:each="emp:${employees}">
+                                            <td th:text="${emp.getId()}"></td>
+                                            <td th:text="${emp.getLastName()}"></td>
+                                            <td th:text="${emp.getEmail()}"></td>
+                                            <td th:text="${emp.getGender()==1?'男':'女'}"></td>
+                                            <td th:text="${emp.getDepartment().getDepartmentname()}"></td>
+                                            <td th:text="${#dates.format(emp.getBirth(), 'yyyy-MM-dd HH:mm:ss')}"></td>
+                                            <td>
+                                                <button class="btn btn-primary">编辑</button>
+                                                <button class="btn btn-danger">解雇</button>
+                                            </td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>

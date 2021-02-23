@@ -17,30 +17,30 @@ import javax.servlet.http.HttpSession;
  * @date 2020/4/20 9:41
  */
 @Controller
-public class  HelloController {
+public class HelloController {
 
-    @RequestMapping({"/","/index"})
-    public String toIndex(Model model){
+    @RequestMapping({"/", "/index"})
+    public String toIndex(Model model) {
         return "login";
     }
 
     @RequestMapping("/add")
-    public String add(){
+    public String add() {
         return "add";
     }
 
     @RequestMapping("/update")
-    public String update(){
+    public String update() {
         return "update";
     }
 
     @RequestMapping("/tologin")
-    public String login(){
+    public String login() {
         return "login";
     }
 
     @RequestMapping("/login")
-    public String login(String username, String password, Model model){
+    public String login(String username, String password, Model model) {
         //获取当前的用户
         Subject subject = SecurityUtils.getSubject();
         //封装用户的登录数据
@@ -49,10 +49,10 @@ public class  HelloController {
         try {
             subject.login(token);
             return "index";
-        }catch (UnknownAccountException e){
+        } catch (UnknownAccountException e) {
             model.addAttribute("msg", "用户名错误");
             return "login";
-        }catch (IncorrectCredentialsException e) {
+        } catch (IncorrectCredentialsException e) {
             model.addAttribute("msg", "密码错误");
             return "login";
         }
@@ -60,7 +60,7 @@ public class  HelloController {
 
     @RequestMapping("/unauth")
     @ResponseBody
-    public String unauthorized(){
+    public String unauthorized() {
         return "未经授权无法访问";
     }
 
@@ -68,7 +68,7 @@ public class  HelloController {
     public String logout(HttpSession session, Model model) {
         Subject subject = SecurityUtils.getSubject();
         subject.logout();
-        model.addAttribute("msg","安全退出！");
+        model.addAttribute("msg", "安全退出！");
         return "login";
     }
 }

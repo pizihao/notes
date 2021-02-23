@@ -23,7 +23,7 @@ public class MyLocaleReslver implements LocaleResolver {
         Locale locale = Locale.getDefault();
 
         //如果请求的连接携带了国际化的参数
-        if (!StringUtils.isEmpty(language)){
+        if (!StringUtils.isEmpty(language)) {
             String[] s = language.split("_");
             locale = new Locale(s[0], s[1]);
         }

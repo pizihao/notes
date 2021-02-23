@@ -10,28 +10,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class RouterController {
-    @RequestMapping({"/","/index"})
-    public String index(){
+    @RequestMapping({"/", "/index"})
+    public String index() {
         return "index";
     }
 
     @RequestMapping("/tologin")
-    public String toLogin(){
+    public String toLogin() {
         return "views/login";
     }
 
     @RequestMapping("/level1/{page}")
-    public String level1(@PathVariable("page") int page){
+    public String level1(@PathVariable("page") int page) {
         return "views/level1/" + page;
     }
 
     @RequestMapping("/level2/{page}")
-    public String level2(@PathVariable("page") int page){
+    public String level2(@PathVariable("page") int page) {
         return "views/level2/" + page;
     }
 
     @RequestMapping("/level3/{page}")
-    public String level3(@PathVariable("page") int page){
+    public String level3(@PathVariable("page") int page) {
         return "views/level3/" + page;
     }
 }

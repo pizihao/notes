@@ -28,7 +28,6 @@ class SpringbootredisApplicationTests {
         // connection.flushAll();
 
 
-
     }
 
 }

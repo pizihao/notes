@@ -16,10 +16,11 @@ import java.util.Map;
 public class JDBCController {
     @Autowired
     JdbcTemplate jdbcTemplate;
+
     //查询数据库所有的信息
     //没有实体类，数据库中的东西使用map就可以了
     @GetMapping("/userlist")
-    public List<Map<String, Object>> userList(){
+    public List<Map<String, Object>> userList() {
         String sql = "select * from users";
         return jdbcTemplate.queryForList(sql);
     }

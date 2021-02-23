@@ -27,20 +27,21 @@ public class EmployeeConrtoller {
     DepartmentMapper departmentMapper;
 
     @RequestMapping("/emplist")
-    public String list(Model model){
+    public String list(Model model) {
         Collection<Employee> employees = employeeMapper.getAll();
         model.addAttribute("employees", employees);
         return "/emp/list";
     }
 
     @GetMapping("/addemp")
-    public String toaddemp(Model model){
+    public String toaddemp(Model model) {
         Collection<Department> departments = departmentMapper.getDepartments();
-        model.addAttribute("departments",departments);
+        model.addAttribute("departments", departments);
         return "emp/add";
     }
+
     @PostMapping("/addemp")
-    public String addemp(Employee employee){
+    public String addemp(Employee employee) {
         employeeMapper.save(employee);
         return "redirect:/emplist";
     }

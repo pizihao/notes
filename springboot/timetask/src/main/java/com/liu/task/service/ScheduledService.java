@@ -13,7 +13,7 @@ public class ScheduledService {
     //依次是秒 分 时 日 月 周几
     //有关cron表达式
     @Scheduled(cron = "30 * * * * ?")
-    public void hello(){
+    public void hello() {
         System.out.println("hello,你被执行了");
     }
 }

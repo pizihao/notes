@@ -21,13 +21,13 @@ import java.util.Map;
 public class DruidController {
     @ConfigurationProperties(prefix = "spring.datasource")
     @Bean
-    public DataSource druidDataSource(){
+    public DataSource druidDataSource() {
         return new DruidDataSource();
     }
 
     // 后台监控
     @Bean
-    public ServletRegistrationBean statViewServlet(){
+    public ServletRegistrationBean statViewServlet() {
         ServletRegistrationBean<StatViewServlet> bean = new ServletRegistrationBean<>(new StatViewServlet(), "/druid/*");
 
         //后台需要有人登陆
@@ -45,7 +45,7 @@ public class DruidController {
     }
 
     //filter
-    public FilterRegistrationBean webStatFilter(){
+    public FilterRegistrationBean webStatFilter() {
         FilterRegistrationBean bean = new FilterRegistrationBean();
         bean.setFilter(new WebStatFilter());
         //可以过滤那些请求
