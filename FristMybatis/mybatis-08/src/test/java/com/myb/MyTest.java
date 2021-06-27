@@ -19,18 +19,16 @@ import java.util.Random;
  **/
 public class MyTest {
     @Test
-    public void test(){
+    public void test() {
         SqlSession sqlSession = MybaitsUtils.getSqlSession();
         UsersMapper mapper = sqlSession.getMapper(UsersMapper.class);
         List<Person> userList = mapper.getUserList();
-        userList.forEach(users -> {
-            System.out.println(users.toString());
-        });
+        userList.forEach(System.out::println);
         sqlSession.close();
     }
 
     @Test
-    public void test1(){
+    public void test1() {
         SqlSession sqlSession = MybaitsUtils.getSqlSession();
         UsersMapper mapper = sqlSession.getMapper(UsersMapper.class);
         Person userById = mapper.getUserById(1);
@@ -39,7 +37,7 @@ public class MyTest {
     }
 
     @Test
-    public void test2(){
+    public void test2() {
         SqlSession sqlSession = MybaitsUtils.getSqlSession();
         UsersMapper mapper = sqlSession.getMapper(UsersMapper.class);
         String s = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -49,11 +47,11 @@ public class MyTest {
         for (int i = 0; i < 500; i++) {
             String name = "";
             int age = 0;
-            for( int j = 0; j < 4; j ++) {
+            for (int j = 0; j < 4; j++) {
                 char a = c[random.nextInt(c.length)];
                 name = name + a;
             }
-            for( int j = 0; j < 2; j ++) {
+            for (int j = 0; j < 2; j++) {
                 int a = c[random.nextInt(c.length)];
                 age = age + a;
             }
@@ -65,10 +63,10 @@ public class MyTest {
     }
 
     @Test
-    public void test3(){
+    public void test3() {
         SqlSession sqlSession = MybaitsUtils.getSqlSession();
         UsersMapper mapper = sqlSession.getMapper(UsersMapper.class);
-        int addUser = mapper.updateUser(1,"哈哈", 12);
+        int addUser = mapper.updateUser(1, "哈哈", 12);
 
         System.out.println(addUser);
         // 提交事务
@@ -77,7 +75,7 @@ public class MyTest {
     }
 
     @Test
-    public void test4(){
+    public void test4() {
         SqlSession sqlSession = MybaitsUtils.getSqlSession();
         UsersMapper mapper = sqlSession.getMapper(UsersMapper.class);
         Person ha = new Person("ha", 12);
@@ -89,7 +87,7 @@ public class MyTest {
     }
 
     @Test
-    public void test5(){
+    public void test5() {
         SqlSession sqlSession = MybaitsUtils.getSqlSession();
         UsersMapper mapper = sqlSession.getMapper(UsersMapper.class);
 

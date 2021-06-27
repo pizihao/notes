@@ -45,9 +45,10 @@ public class TestLock07 {
     public static void main(String[] args) {
         TestLock07 urwLock = new TestLock07();
 //        IntStream.of(1, 2).forEach(value -> {
-        new Thread(urwLock::read, "读线程1").start();
-        new Thread(urwLock::write, "写线程").start();
-        new Thread(urwLock::read, "读线程2").start();
+//        new Thread(urwLock::read, "读线程1").start();
+//        new Thread(urwLock::write, "写线程").start();
+//        new Thread(urwLock::read, "读线程2").start();
 //        });
+        String str = "123456";
     }
 }

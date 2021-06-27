@@ -8,10 +8,9 @@ import java.util.concurrent.RecursiveTask;
  */
 public class ForkJoinDome01 extends RecursiveTask<Long> {
 
-    private  Long start;
-    private  Long end;
-
-    private  Long temp = 1000L;
+    private static final long serialVersionUID = -7274126236233552589L;
+    private final Long start;
+    private final Long end;
 
     public ForkJoinDome01(Long start, Long end) {
         this.start = start;
@@ -19,6 +18,7 @@ public class ForkJoinDome01 extends RecursiveTask<Long> {
     }
     @Override
     protected Long compute() {
+        long temp = 1000L;
         if ((end - start) > temp){
            long sum = 0;
            for (Long i = start; i <= end ; i++){

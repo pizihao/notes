@@ -1,0 +1,27 @@
+mapper:
+  namespace: com.liu.helloworld.mapper.UsersMapper
+  insert:
+    addUser:
+      parameterType: com.liu.helloworld.pojo.Users
+      sql: insert into person(name, age) values (${name}, ${age})
+
+
+  delete:
+    deleteById:
+      parameterType: int
+      sql: delete from person where id = ${id}
+
+
+  update:
+    updateById:
+      parameterType: com.liu.helloworld.pojo.Users
+      sql: update person set name = ${name}, age = ${age} where id = ${id};
+
+
+  select:
+    getUserById:
+      resultType: com.liu.helloworld.pojo.Users
+      sql: select * from person where id = ${id}
+    getUserList:
+      resultType: com.liu.helloworld.pojo.Users
+      sql: select * from person

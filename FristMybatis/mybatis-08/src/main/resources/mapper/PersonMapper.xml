@@ -39,8 +39,6 @@
 
     <!--查询-->
     <select id="getUserList" resultType="com.myb.pojo.Person">
-
-                 select * from person
-
+        select * from person
     </select>
 </mapper>

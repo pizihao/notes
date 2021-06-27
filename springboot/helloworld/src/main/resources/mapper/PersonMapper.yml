@@ -1,0 +1,13 @@
+mapper:
+  namespace: com.liu.helloworld.mapper.PersonMapper
+  insert:
+    addUser:
+      parameterType: com.liu.helloworld.pojo.Person
+      sql: insert into person(name, age) values ({name}, {age})
+    select:
+      getUserById:
+        resultType: com.liu.helloworld.pojo.Person
+        sql: select * from person where id = {id}
+      getUserList:
+        resultType: com.liu.helloworld.pojo.Person
+        sql: select * from person

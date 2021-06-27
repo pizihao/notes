@@ -35,9 +35,7 @@ public class Test01 {
         Long sum = 0L;
         try {
             sum = submit.get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
         long end = System.currentTimeMillis();

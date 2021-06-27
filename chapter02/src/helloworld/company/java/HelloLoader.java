@@ -1,5 +1,7 @@
 package helloworld.company.java;
 
+import java.util.Collection;
+
 /**
  * @Description TODO
  * @Author shidacaizi

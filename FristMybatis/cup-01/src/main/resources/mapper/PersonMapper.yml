@@ -1,0 +1,13 @@
+mapper:
+  namespace: com.qlu.cup.mapper.PersonMapper
+  insert:
+    addUser:
+      parameterType: com.qlu.cup.pojo.Person
+      sql: insert into person(name, age) values ({name}, {age})
+  select:
+    getUserById:
+      resultType: com.qlu.cup.pojo.Person
+      sql: select * from person where id = {id}
+    getUserList:
+      resultType: com.qlu.cup.pojo.Person
+      sql: select * from person

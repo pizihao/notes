@@ -23,7 +23,7 @@ public class TestLock05 {
                     System.out.println(Thread.currentThread().getName() + "到达");
                     barrier.await();
 
-                    TimeUnit.SECONDS.sleep(20);
+                    TimeUnit.SECONDS.sleep(1);
                     System.out.println(Thread.currentThread().getName() + "第二次到达");
                 } catch (InterruptedException | BrokenBarrierException e) {
                     e.printStackTrace();

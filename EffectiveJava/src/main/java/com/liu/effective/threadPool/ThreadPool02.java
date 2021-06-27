@@ -3,7 +3,10 @@ package com.liu.effective.threadPool;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.*;
 
@@ -15,7 +18,7 @@ import java.util.concurrent.*;
  **/
 public class ThreadPool02 {
     private static final ThreadPool01 threadPool01 = new ThreadPool01();
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
         ThreadPoolExecutor threadPoolExecutor = threadPool01.getThreadPoolExecutor();
         List<FutureTask<String>> tasks = new ArrayList<>();
 
@@ -36,16 +39,17 @@ public class ThreadPool02 {
 //            }
 //        });
 
-        for (int i = 0; i < 25; i++) {
+        for (int i = 0; i < 5; i++) {
             int finalI = i;
             FutureTask<String> submit = (FutureTask<String>) threadPoolExecutor.submit(() -> {
                 try {
-                    TimeUnit.SECONDS.sleep(5);
+                    TimeUnit.SECONDS.sleep(1);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 return finalI + "";
             });
+            submit.get();
             tasks.add(submit);
         }
 
@@ -56,7 +60,6 @@ public class ThreadPool02 {
                 e.printStackTrace();
             }
         });
-
 
         threadPoolExecutor.shutdown();
     }
